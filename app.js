@@ -13,7 +13,14 @@ app.controller('MainCtrl', [
       {title: 'post 5', upvotes: 7},
     ];
     $scope.addPost = function () {
-      $scope.posts.push({title: 'A new post!', upvotes: 0});
+      // do not allow users to submit posts with empty title
+      if (!$scope.title || $scope.title === '') {
+        return;
+      }
+
+      // append new post to $scope.posts
+      $scope.posts.push({title: $scope.title, upvotes: 0});
+      $scope.title = '';
     };
   }
 ]);
