@@ -27,6 +27,10 @@ app.controller('MainCtrl', [
         title: $scope.title,
         link: $scope.link,
         upvotes: 0,
+        comments: [
+          {author: 'Joe', body: 'Cool post!', upvotes: 0},
+          {author: 'Bob', body: 'Great idea but everything is wrong!', upvotes: 0}
+        ],
       });
       $scope.title = '';
       $scope.link = '';
@@ -39,6 +43,14 @@ app.controller('MainCtrl', [
   }
 ]);
 
+app.controller('PostsCtrl', [
+  '$scope',
+  '$stateParams',
+  'posts',
+  function ($scope, $stateParams, posts) {
+    $scope.post = posts.posts[$stateParams.id];
+  },
+]);
 
 // configure angular router
 app.config([
@@ -50,8 +62,13 @@ app.config([
     $stateProvider.state('home', {
       url: '/home',
       templateUrl: '/home.html',
-      controller: 'MainCtrl'
-    });
+      controller: 'MainCtrl',
+    })
+      .state('posts', { //define new state for posts
+        url: '/posts/{id}',
+        templateUrl: '/posts.html',
+        controller: 'PostsCtrl',
+      });
 
     // default to home page
     $urlRouterProvider.otherwise('home');

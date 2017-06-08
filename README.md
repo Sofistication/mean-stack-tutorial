@@ -8,6 +8,7 @@ Created by following the tutorial [here](https://thinkster.io/mean-stack-tutoria
 
 - Tutorial uses Angular 1, not 2. This choice is deliberate due to needing to learn Angular 1 for work
 - Not yet sure if ES6 syntax will cause issues, so far `'use strict'` and `const` haven't broken anything
+- Syntax errors in angular html attributes such as `ng-repeat` will cause the entire element not to render
 
 ### Problems
 
