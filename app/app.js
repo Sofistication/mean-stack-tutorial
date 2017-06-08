@@ -55,5 +55,5 @@ app.config([
 
     // default to home page
     $urlRouterProvider.otherwise('home');
-  }
+  },
 ]);

@@ -1,4 +1,4 @@
-# MEANish Stack Tutorial
+# MEAN Stack Tutorial
 
 Reddit/HackerNews clone created to learn MEAN stack.
 
@@ -11,4 +11,4 @@ Created by following the tutorial [here](https://thinkster.io/mean-stack-tutoria
 
 ### Problems
 
-- [ ] switching to use angular services broke the app due to chrome's CORS issues when loading local files. The tutorial did not indicate that any kind of local server was being used, will investigate resolving the issue.
+- [x] switching to use angular services broke the app due to chrome's CORS issues when loading local files. The tutorial did not indicate that any kind of local server was being used, will investigate resolving the issue. SOLVED: switched to using `http-server` and separate `home.html` file
