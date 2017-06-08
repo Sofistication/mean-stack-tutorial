@@ -1,6 +1,6 @@
 "use strict"
 
-const app = angular.module('flapperNews', []);
+const app = angular.module('flapperNews', ['ui.router']);
 
 app.factory('posts', [function () {
   const o = {
@@ -36,5 +36,24 @@ app.controller('MainCtrl', [
     $scope.incrementUpvotes = function (post) {
       post.upvotes += 1;
     };
+  }
+]);
+
+
+// configure angular router
+app.config([
+  '$stateProvider',
+  '$urlRouterProvider',
+  function ($stateProvider, $urlRouterProvider) {
+
+    // define `home` state
+    $stateProvider.state('home', {
+      url: '/home',
+      templateUrl: '/home.html',
+      controller: 'MainCtrl'
+    });
+
+    // default to home page
+    $urlRouterProvider.otherwise('home');
   }
 ]);
