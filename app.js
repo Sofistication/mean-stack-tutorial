@@ -12,6 +12,8 @@ app.controller('MainCtrl', [
       {title: 'post 4', upvotes: 4},
       {title: 'post 5', upvotes: 7},
     ];
+
+    // define function to create new posts with user input
     $scope.addPost = function () {
       // do not allow users to submit posts with empty title
       if (!$scope.title || $scope.title === '') {
@@ -19,8 +21,18 @@ app.controller('MainCtrl', [
       }
 
       // append new post to $scope.posts
-      $scope.posts.push({title: $scope.title, upvotes: 0});
+      $scope.posts.push({
+        title: $scope.title,
+        link: $scope.link,
+        upvotes: 0,
+      });
       $scope.title = '';
+      $scope.link = '';
+    };
+
+    // define function to increase upvote count
+    $scope.incrementUpvotes = function (post) {
+      post.upvotes += 1;
     };
   }
 ]);
