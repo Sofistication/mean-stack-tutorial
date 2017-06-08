@@ -2,16 +2,18 @@
 
 const app = angular.module('flapperNews', []);
 
+app.factory('posts', [function () {
+  const o = {
+    posts: []
+  };
+  return o;
+}]);
+
 app.controller('MainCtrl', [
   '$scope',
-  function($scope){
-    $scope.posts = [
-      {title: 'post 1', upvotes: 5},
-      {title: 'post 2', upvotes: 2},
-      {title: 'post 3', upvotes: 13},
-      {title: 'post 4', upvotes: 4},
-      {title: 'post 5', upvotes: 7},
-    ];
+  'posts',
+  function($scope, posts){
+    $scope.posts = posts.posts;
 
     // define function to create new posts with user input
     $scope.addPost = function () {
